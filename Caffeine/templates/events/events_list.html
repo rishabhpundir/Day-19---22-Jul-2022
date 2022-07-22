@@ -1,0 +1,36 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{% get_media_prefix as MEDIA_URL %}
+{% block title %}CAFFEINE® | Events List{% endblock title %}
+
+{% block body %}
+<div class="container my-4">
+    <h1 class="text-center py-5">CAFFEINE® Events</h1>
+    
+    <div class="row">
+        {% for event in events %}
+        <div class="col-sm py-2">
+            <div class="card" style="width: 30rem;">
+              <img src="{% get_media_prefix %}{{event.venue.venue_image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title">{{event.event_name}}</h3>
+                    <p class="card-text">
+                        <ul>
+                            <li><strong>DATE :</strong> {{event.event_date}}</li>
+                            <li><strong>VENUE :</strong> {{event.venue}}</li> 
+                            <li><strong>MANAGER :</strong> {{event.manager}}</li>
+                            <li><strong>EVENT DESCRIPTION :</strong>{{event.event_desc}}</li>
+                        </ul>
+                    </p>
+                    <a href="#" class="btn btn-primary">More Details</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    
+</div>
+{% endblock body %}
+
+
+

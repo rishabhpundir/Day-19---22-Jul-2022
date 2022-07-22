@@ -1,0 +1,20 @@
+{% extends 'events/base.html' %}
+{% block title %}CAFFEINE® | Update Venue{% endblock title %}
+
+{% block body %}
+
+<h1 class="text-center text-dark pt-5">Update Venue</h1>
+<div class="container">
+    <div class="text-left">
+        <div class="form-group">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-secondary">Update Venue</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

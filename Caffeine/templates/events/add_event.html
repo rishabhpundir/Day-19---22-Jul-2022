@@ -1,0 +1,33 @@
+{% extends 'events/base.html' %}
+{% block title %}CAFFEINE® | Add Event{% endblock title %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="text-center text-dark mt-5">Add Event</h1>
+   
+        {% if submitted %}
+
+        <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+            <strong>Yay!</strong> New Event added successfully.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+        {% else %}
+        <div class="form-group">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.as_p }}        
+                
+                
+                <button type="submit" class="btn btn-success">Add Venue</button> 
+            </form> 
+        </div>
+        {% endif %}
+ 
+</div>
+
+{% endblock body %}

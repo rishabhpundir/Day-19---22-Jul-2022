@@ -1,0 +1,34 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{% get_media_prefix as MEDIA_URL %}
+{% block title %}CAFFEINE® | Venues{% endblock title %}
+
+{% block body %}
+
+    
+<div class="container my-4">
+    <h1 class="text-center py-5">CAFFEINE® Venues</h1>
+    
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Venue Name</th>
+                <th scope="col">Venue Address</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for venue in venues %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{ venue.venue_name }}</td>
+                <td>{{ venue.venue_address }}</td>
+                <td><a href="{% url 'update_venue_link' venue.id %}" class="btn btn-primary">UPDATE</a> <a href="{% url 'delete_venue_link' venue.id %}" class="btn btn-danger">DELETE</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    
+</div>
+{% endblock body %}
